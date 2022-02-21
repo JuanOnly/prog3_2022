@@ -1,48 +1,48 @@
 const express = require("express");
-const userSchema = require("../models/user");
+const productSchema = require("../models/products");
 const route = express.Router();
 
 // Crear la ruta para creacion de usuarios
-route.post("/user", (req, res) => {
-  const user = userSchema(req.body);
-  user
+route.post("/product", (req, res) => {
+  const product = productSchema(req.body);
+  product
     .save()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 // listar los usuarios existentes
-route.get("/users", (req, res) => {
-  userSchema
+route.get("/products", (req, res) => {
+  productSchema
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 // Mostrar info de usuario especifico
-route.get("/users/:id", (req, res) => {
+route.get("/products/:id", (req, res) => {
   const id = req.params;
-  userSchema
+  productSchema
     .findById(id)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 // Eliminar un usuario especifico
-route.delete("/users/:id", (req, res) => {
+route.delete("/products/:id", (req, res) => {
   const { id } = req.params;
-  userSchema
+  productSchema
     .findById({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });
 
 // Editar un recurso especifico
-route.put("/users/:id", (req, res) => {
+route.put("/products/:id", (req, res) => {
   const { id } = req.params;
-  const { name, lastname, age, email } = req.params;
-  userSchema
-    .put({ _id: id }, { $set: { name, lastname, age, email } })
+  const { product, img, price, cant, state } = req.body;
+  productSchema
+    .updateOne({ _id: id }, { $set: { product, img, price, cant, state } })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
 });

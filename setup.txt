@@ -7,3 +7,4 @@ npm nopemon -D // for showing changes immediately to webpages
 
 npm i mongoose // Connects to the mongoose server database
 
+npm i dotenv

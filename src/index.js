@@ -18,8 +18,15 @@ mongoose
   .catch((error) => console.error(error));
 
 const userSchemaRoutes = require("./routes/user_routes");
+const clientSchemaRoutes = require("./routes/client_routes");
+const productSchemaRoutes = require("./routes/product_routes");
 // Middleware
 execute_app.use(express.json());
 // Crear usuario: http://localhost:3000/dashboard/user
-// Consultar usuarios: htp://localhost:3000/dashboard/users
-execute_app.use("/dashboard", userSchemaRoutes);
+// Consultar usuarios: http://localhost:3000/dashboard/users
+execute_app.use(
+  "/dashboard",
+  userSchemaRoutes,
+  clientSchemaRoutes,
+  productSchemaRoutes
+);

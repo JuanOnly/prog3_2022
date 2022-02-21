@@ -18,4 +18,4 @@ const user_schema = mongoose.Schema({
   },
 });
 
-module.expoerts = mongoose.model("user_document", user_schema);
+module.exports = mongoose.model("user_document", user_schema);
