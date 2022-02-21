@@ -1,0 +1,9 @@
+npm init --y // package.json setup
+npm init --yes // installs npm package
+
+npm i express // make requests HTTP activare port
+
+npm nopemon -D // for showing changes immediately to webpages
+
+npm i mongoose // Connects to the mongoose server database
+
