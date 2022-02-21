@@ -21,7 +21,7 @@ route.get("/clients", (req, res) => {
 
 // Mostrar info de usuario especifico
 route.get("/clients/:id", (req, res) => {
-  const id = req.params;
+  const {id} = req.params;
   clientSchema
     .findById(id)
     .then((data) => res.json(data))

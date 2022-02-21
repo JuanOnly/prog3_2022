@@ -4,7 +4,7 @@ POST http://localhost:3000/dashboard/user HTTP/1.1
 Content-Type: application/json
 
 {
-	"name": "Student 6",
+	"name": "Student 8",
 	"lastname": "lasatname2",
 	"age": 30,
 	"email": "Student2@ucaldas.edu.co"
@@ -14,12 +14,22 @@ Content-Type: application/json
 GET http://localhost:3000/dashboard/users HTTP/1.1
 
 ###
-GET http://localhost:3000/dashboard/users/_id HTTP/1.1
-Content-Type: application/json
+GET http://localhost:3000/dashboard/users/6213b738f9f157f65637ac4e HTTP/1.1
 
+###
+PUT http://localhost:3000//dashboard/users/6213b738f9f157f65637ac4e
+HTTP/1.1
+Content-Type: application/json
 {
-	"_id": "6213b738f9f157f65637ac4e"
+"name": "User3",
+"age": 18,
+"email": "user3@ucaldas.edu.co"
 }
+
+###
+DELETE http://localhost:3000/dashboard/users/6213b738f9f157f65637ac4e
+HTTP/1.1
+
 
 
 /*Client HTTP REQUESTS */
